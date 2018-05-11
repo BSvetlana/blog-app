@@ -15,6 +15,7 @@
                         <textarea class="form-control" id="text" placeholder="text ..." v-model="newPosts.text"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <button @click="reset" type="button" class="btn btn-outline-primary">Reset</button>
                     </form>
             </div>
         </div>
@@ -43,6 +44,9 @@ export default {
              .catch((error) => {
                  console.log(error)
              })
+      },
+      reset(){
+          this.newPosts = {}
       }
   }
 }
