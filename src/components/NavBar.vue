@@ -8,10 +8,10 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <router-link :to="{name: 'posts'}" class="nav-link">All Posts<span class="sr-only">(current)</span></router-link>
+        <router-link :to="{name: 'posts'}" class="nav-link">All Posts</router-link>
       </li>
-      <li class="nav-item">
-        <a class="nav-link"></a>
+      <li class="nav-item active">
+        <router-link :to="{name: 'add-post'}" class="nav-link">Add Posts</router-link>
       </li>
       <li class="nav-item">
         <a class="nav-link"></a>

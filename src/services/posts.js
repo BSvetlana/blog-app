@@ -13,6 +13,10 @@ export default class Posts {
      get(id) {
          return axios.get(`posts/${id}`)
      }
+
+     addPosts(newPosts){
+         return axios.put('posts',newPosts)
+     }
 }
 
 export const posts = new Posts()
