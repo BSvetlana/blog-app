@@ -4,10 +4,13 @@
           
       <div class="container mt-4">
           <div class="row">
-        <div class="col-md-4" v-for="post in posts" :key="post">
-            <h2>{{ post.title}}</h2>
-            <p>{{ post.text}}</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-md-4" v-for="(post,key) in posts" :key="key">
+            <h2>{{ post.title }}</h2>
+            <p class="ellip">{{ post.text }}</p>
+            <p><router-link  class="btn btn-secondary"
+                            :to="{name: 'posts-details', params: {id: post.id}}"
+                             role="button">View Posts &raquo;</router-link>
+            </p>
           </div>
         </div>
           </div>
@@ -31,7 +34,6 @@ export default {
       posts.getAll()
       .then((response) => {
           this.posts = response.data
-          console.log(this.posts)
       })
       .catch((error) => {
           console.log(error)
@@ -41,7 +43,12 @@ export default {
 </script>
 
 <style>
-
+.ellip{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+}
 </style>
 
 
