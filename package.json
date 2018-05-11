@@ -12,6 +12,7 @@
     "bootstrap": "^4.1.1",
     "bootstrap-vue": "^2.0.0-rc.9",
     "vue": "^2.5.16",
+    "vue-form-validator": "0.0.3",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

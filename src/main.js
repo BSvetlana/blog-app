@@ -5,10 +5,12 @@ import BootstrapVue from "bootstrap-vue/dist/bootstrap-vue.esm";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
+import VueValidator from 'vue-form-validator'
+
 import { router } from './router'
 
 Vue.use(BootstrapVue)
-
+Vue.use(VueValidator)
 
 Vue.config.productionTip = false
 

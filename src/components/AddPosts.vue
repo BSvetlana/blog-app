@@ -7,12 +7,12 @@
                     <form @submit.prevent="submit">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="title ..." v-model="newPosts.title">
+                        <input type="text" class="form-control" id="title" placeholder="title ..." v-model="newPosts.title" required="required" minlength="2">
                     </div>
 
                     <div class="form-group">
                         <label for="text">Posts text</label>
-                        <textarea class="form-control" id="text" placeholder="text ..." v-model="newPosts.text"></textarea>
+                        <textarea class="form-control" id="text" placeholder="text ..." v-model="newPosts.text" required="required" maxlength="300"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button @click="reset" type="button" class="btn btn-outline-primary">Reset</button>
