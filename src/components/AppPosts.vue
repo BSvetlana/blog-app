@@ -4,13 +4,20 @@
           
       <div class="container mt-4">
           <div class="row">
-        <div class="col-md-4" v-for="(post,key) in posts" :key="key">
+        <div class="col-md-4" v-for="(post,index) in posts" :key="post.id">
             <h2>{{ post.title }}</h2>
             <p class="ellip">{{ post.text }}</p>
+            <span class="badge">Number of comments: {{post.comments.length}}</span>
             <p><router-link  class="btn btn-secondary"
                             :to="{name: 'posts-details', params: {id: post.id}}"
                              role="button">View Posts &raquo;</router-link>
             </p>
+            <p>
+                <router-link style="color: black; text-decoration:none  " :to="{name: 'edit', params: { id: post.id }}">
+                    <button class="btn btn-outline-secondary">Edit Post</button>
+                </router-link>
+            </p>
+            <button class="btn btn-outline-danger btn-sm" @click="deletePost(post.id,index)">Delete</button>
           </div>
         </div>
           </div>
@@ -38,6 +45,14 @@ export default {
       .catch((error) => {
           console.log(error)
       })
+  },
+  methods: {
+      deletePost(id,index) {
+          posts.delete(id)
+          .then((success) => {
+             this.posts.splice(index,1)
+          })
+      }
   }
 }
 </script>

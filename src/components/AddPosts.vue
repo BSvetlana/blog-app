@@ -14,8 +14,8 @@
                         <label for="text">Posts text</label>
                         <textarea class="form-control" id="text" placeholder="text ..." v-model="newPosts.text" required="required" maxlength="300"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button @click="reset" type="button" class="btn btn-outline-primary">Reset</button>
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                    <button @click="reset" type="button" class="btn btn-outline-secondary">Reset</button>
                     </form>
             </div>
         </div>
@@ -35,6 +35,12 @@ export default {
           }
       }
   },
+      created() {
+      this.$route.params.id && posts.get(this.$route.params.id)
+        .then((response) => {
+          this.newPosts = response.data     
+         })
+    },
   methods: {
       submit(){
           posts.addPosts(this.newPosts)
@@ -47,7 +53,17 @@ export default {
       },
       reset(){
           this.newPosts = {}
+      },
+      editPost() {
+        posts.edit(this.$route.params.id, this.newPost)
+          .then((response) => {
+            this.$router.push('/posts')
+          }).catch((error) => {
+            console.log('error')
+          })
+  
       }
+      
   }
 }
 </script>
